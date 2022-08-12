@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { Header } from '../Header';
 import { Footer } from '../Footer';
@@ -15,7 +15,7 @@ type LayoutProps = {
     meta: Meta;
 }
 
-const Layout = ({ children, meta }: LayoutProps): ReactNode => {
+const Layout = ({ children, meta }: LayoutProps): ReactElement => {
     const { title, description, icon } = meta;
 
     return (

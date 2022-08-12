@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import Layout from '../components/Layout';
+import { Layout } from 'src/components';
 import type { NextPageWithLayout } from './_app';
 
 const AboutPage: NextPageWithLayout = () => {
@@ -8,12 +8,12 @@ const AboutPage: NextPageWithLayout = () => {
 
 AboutPage.getLayout = (page: ReactElement) => (
     <Layout
-        meta={{
+        meta={ {
             title: 'Home | NextJs',
             description: 'About homepage',
-        }}
+        } }
     >
-        {page}
+        { page }
     </Layout>
 );
 
