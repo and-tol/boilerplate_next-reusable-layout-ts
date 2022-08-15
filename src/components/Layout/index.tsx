@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import type { ReactElement, ReactNode } from 'react';
 
-import { Header } from '../Header';
-import { Footer } from '../Footer';
+import { Header } from 'src/components/Header';
+import { Footer } from 'src/components/Footer';
 
 interface Meta {
     title: string;

@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import { Layout } from 'src/components';
 import type { NextPageWithLayout } from './_app';
 
-const AboutPage: NextPageWithLayout = () => {
+const AboutPage: NextPageWithLayout = (): ReactElement=> {
     return <div>About content</div>;
 };
 
