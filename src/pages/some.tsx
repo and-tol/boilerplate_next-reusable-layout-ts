@@ -2,19 +2,19 @@ import type { ReactElement } from 'react';
 import { Layout } from 'src/components';
 import type { NextPageWithLayout } from './_app';
 
-const AboutPage: NextPageWithLayout = (): ReactElement=> {
+const SomePage: NextPageWithLayout = (): ReactElement=> {
     return <div>About content</div>;
 };
 
-AboutPage.getLayout = (page: ReactElement) => (
+SomePage.getLayout = (page: ReactElement) => (
     <Layout
         meta={ {
-            title: 'Home | NextJs',
-            description: 'About homepage',
+            title: 'Some | NextJs',
+            description: 'Some Page',
         } }
     >
         { page }
     </Layout>
 );
 
-export default AboutPage;
+export default SomePage;
