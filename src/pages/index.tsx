@@ -1,20 +1,24 @@
-import type { ReactElement } from 'react';
-import Layout from 'src/components/Layout';
-import type { NextPageWithLayout } from './_app';
+// Used Per-Page Layout
 
-const HomePage: NextPageWithLayout = (): ReactElement=> {
-    return <div>Homepage content</div>;
+import type { ReactElement } from 'react';
+
+import { Layout } from 'src/components/layout/Per-Page-Layouts';
+import type { NextPageWithLayout } from 'src/pages/_app';
+import { PROJECT_NAME } from 'src/constants';
+
+const HomePage: NextPageWithLayout = (): ReactElement => {
+  return <div>Home page content</div>;
 };
 
-HomePage.getLayout = (page: ReactElement) => (
-    <Layout
-        meta={{
-            title: 'Home | NextJs',
-            description: 'NextJs Layout architecture homepage',
-        }}
-    >
-        {page}
-    </Layout>
+HomePage.getLayout = (page) => (
+  <Layout
+    meta={{
+      title: `Home`,
+      description: `${PROJECT_NAME} architecture homepage`,
+    }}
+  >
+    {page}
+  </Layout>
 );
 
 export default HomePage;

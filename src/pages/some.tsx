@@ -3,13 +3,13 @@ import { Layout } from 'src/components';
 import type { NextPageWithLayout } from './_app';
 
 const SomePage: NextPageWithLayout = (): ReactElement=> {
-    return <div>About content</div>;
+    return <div>Some page content</div>;
 };
 
-SomePage.getLayout = (page: ReactElement) => (
+SomePage.getLayout = (page) => (
     <Layout
         meta={ {
-            title: 'Some | NextJs',
+            title: 'Some',
             description: 'Some Page',
         } }
     >

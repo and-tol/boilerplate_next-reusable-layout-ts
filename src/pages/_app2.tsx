@@ -1,32 +1,28 @@
-import React from 'react';
 import Head from 'next/head';
 
-import type { NextPage } from 'next/types';
 import type { AppProps } from 'next/app';
-import type { ReactNode } from 'react';
+import type { NextPage } from 'next/types';
+import type { ReactElement, ReactNode } from 'react';
 
-type GetLayout = (page: ReactNode) => ReactNode;
+import 'src/styles/globals.css';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type Page<P = {}, IP = P> = NextPage<P, IP> & { getLayout?: GetLayout };
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-type MyAppProps<P = {}> = AppProps<P> & {
-  Component: Page<P>;
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
 };
 
-const defaultGetLayout: GetLayout = (page: ReactNode): ReactNode => page;
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
 
-function MyApp({ Component, pageProps }: MyAppProps): JSX.Element {
-  const getLayout = Component.getLayout ?? defaultGetLayout;
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  // Use the layout defined at the page level, if available
+  const getLayout = Component.getLayout || ((page) => page);
 
   return (
     <>
       <Head>
-        <title>My site</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" key="viewport" />
       </Head>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       {getLayout(<Component {...pageProps} />)}
     </>
   );
